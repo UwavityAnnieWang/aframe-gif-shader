@@ -101,9 +101,10 @@
 	  init: function init(data) {
 	    log('init', data);
 	    log(this.el.components);
+	    var srcElement = document.querySelector(data.src);
 	    this.__cnv = document.createElement('canvas');
-	    this.__cnv.width = 2;
-	    this.__cnv.height = 2;
+	    this.__cnv.width = srcElement.width;
+	    this.__cnv.height = srcElement.length;
 	    this.__ctx = this.__cnv.getContext('2d');
 	    this.__texture = new THREE.Texture(this.__cnv); //renders straight from a canvas
 	    this.__material = {};
